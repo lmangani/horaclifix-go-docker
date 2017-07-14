@@ -3,6 +3,16 @@ echo "HORACLIFIX GO Starting..."
 
 COMMAND="horaclifix "
 
+if [[ ${DEBUG:+1} ]] ; then
+  echo "DEBUG Enabled..."
+  COMMAND+="-d "
+fi
+
+if [[ ${VERBOSE:+1} ]] ; then
+  echo "VERBOSE Enabled..."
+  COMMAND+="-v "
+fi
+
 if [[ $HEP_HOST =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   echo "Adding HEP target: $HEP_HOST:$HEP_PORT"
   COMMAND+="-H $HEP_HOST:$HEP_PORT "
