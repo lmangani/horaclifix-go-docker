@@ -17,9 +17,14 @@ if [[ $HEP_HOST =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   echo "Adding HEP target: $HEP_HOST:$HEP_PORT"
   COMMAND+="-H $HEP_HOST:$HEP_PORT "
 else
-  HEP_IP=$(ping -q -c 1 -t 1 $HEP_HOST | grep PING | sed -e "s/).*//" | sed -e "s/.*(//")
-  echo "Adding HEP target: $HEP_IP:$HEP_PORT"
-  COMMAND+="-H $HEP_IP:$HEP_PORT "
+  HEP_IP=$(ping -q -c 1 $HEP_HOST | grep PING | sed -e "s/).*//" | sed -e "s/.*(//")
+  if [[ ${HEP_IP:+1} ]] ; then
+      echo "Adding HEP target: $HEP_IP:$HEP_PORT"
+      COMMAND+="-H $HEP_IP:$HEP_PORT "
+  else
+      echo "Failed resolving $HEP_HOST ! Exiting..."
+      exit 1;
+  fi
 fi
 
 
