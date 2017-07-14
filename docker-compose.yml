@@ -1,7 +1,7 @@
 version: '2'
 services:
   HORACLIFIX-GO:
-    image: qxip/horaclifix-go
+    image: qxip/horaclifix-go:master
     environment:
       HEP_HOST: '127.0.0.1'
       HEP_PORT: '9063'
