@@ -9,8 +9,8 @@ Horaclifix decodes IPFIX messages from Oracle SBC's and converts them into HEP M
 #### Usage
 Horaclifix supports HEP, StatsD and Graylog output, configured by ENV variables
 
-Example: ```docker run --env HEP_HOST=127.0.0.1 --env HEP_PORT=9060 qxip/horaclifix-go```
-Example: ```docker run --env HEP_HOST=127.0.0.1 --env HEP_PORT=9060 --STATSD_URL=127.0.0.1:8125 qxip/horaclifix-go```
+##### Example
+```docker run --env HEP_HOST=127.0.0.1 --env HEP_PORT=9060 -p 4739:4739 qxip/horaclifix-go```
 
 
 ##### ENV VARIABLES
