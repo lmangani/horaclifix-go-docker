@@ -3,6 +3,7 @@
 echo "Updating Horaclifix... "
 rm -rf /go/src/github.com/negbie/horaclifix
 go get github.com/negbie/horaclifix
+go install github.com/negbie/horaclifix
 
 echo "HORACLIFIX GO Starting..."
 
