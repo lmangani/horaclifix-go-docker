@@ -1,5 +1,5 @@
 FROM golang:1.6
-LABEL version="20170727002"
+LABEL version="20170727003"
 RUN go get github.com/negbie/siprocket
 RUN go get github.com/negbie/horaclifix \
     && go install github.com/negbie/horaclifix
